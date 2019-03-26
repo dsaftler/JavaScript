@@ -1,8 +1,9 @@
 // Variables
-var  wordArr = ["unicorn","griffin","dragon","mermaid","centaur","pegasus"];
-// for (var i=0; i<wordArr.length; i++){
-//   console.log(wordArr[i]);
+var  wordARR = ["unicorn","griffin","dragon","mermaid","centaur","pegasus"];
+// for (var i=0; i<wordARR.length; i++){
+//   console.log(wordARR[i]);
 // } 
+var  cntWins;
 var id="cntWins";
 var id="curCntGuess";
 var id="ltr_0"
@@ -23,19 +24,13 @@ var id="ltr_0"
  id="ltrTried_7",
  id="ltrTried_8", 
  id="ltrTried_9" ;
-var  cntWins=0;
 
 // within the game
-// while wordArr.length>0
+// while wordArr.lenght>0
  var curPtr=0, curCntGuess = 0; 
- var curLetter="",curWord="";
+ var curLetter="",cyrWord="";
 // curPtr= .... select a random word
-//curWordArr = array the word at that index
-for (var i=0; i<curWord.length; i++){
-  // console.log(thisWord.charAt([i]));
-  //fruits.push("Kiwi")
-  curWordArr.push(curWord.charAt([i]));
-}
+//curWord = array the word at that index
 // intialize badGuess as empy array 
 var badGuess = [], curWordArr=[];
 // whil curCntGuess < 10
@@ -43,9 +38,8 @@ var badGuess = [], curWordArr=[];
  // if escape, exit
 
  // increment curCntGuess
- curCntGuess++
 //See if that letter was already chosen by parsing badGuess  
-for (var j=0; j<badGuess.length; j++);
+// for (var i=0; i<badGuess.length; i++)
   // alert?  maybe make that letter change color?
 //  else
 
@@ -58,7 +52,6 @@ for (var j=0; j<badGuess.length; j++);
       // now compare the word in curWordArr with curWord
       // ===
       // Alert :You Won
-      // show image
       // id="cntWins"
       // remove that word from the array wordARR
 
