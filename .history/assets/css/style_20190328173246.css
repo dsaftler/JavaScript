@@ -1,5 +1,4 @@
-body {font-family: 'Ubuntu', sans-serif;
-font-weight: 400}
+body {font-family: 'Ubuntu', sans-serif;}
 .showtext {height:35px; 
 padding: 20px 0 10px;
 font-size: 25px;}
@@ -10,7 +9,7 @@ font-size: 25px;}
   border: 1px solid blue; 
   background-color: rgb(142, 245, 73)}
 .guessed {
-  font-weight: 100;
+  font-style: "regular italic";
   border: 1px solid blue; 
   background-color: rgb(255, 173, 96)}
 .score{ 
