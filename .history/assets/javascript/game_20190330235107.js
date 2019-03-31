@@ -158,8 +158,8 @@ function nextWord(){
 }
 function showValue(thisId,thisValue){
   var target=document.getElementById(thisId);
-  // console.log(thisValue)
-  // console.log(thisId)
+  console.log(thisValue)
+  console.log(thisId)
   target.innerHTML=thisValue;
 }
 function addValue(thisId,thisValue){

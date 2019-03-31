@@ -1,0 +1,27 @@
+body {font-family: 'Ubuntu+Mono',monospace, sans-serif;
+font-weight: 400}
+.showtext {height:35px; 
+padding: 20px 0 10px;
+font-size: 30px;
+}
+.letter {font-size: 100px;
+  display: inline;
+  padding: 5px;}
+.match { 
+  border: 1px solid blue; 
+  background-color: rgb(142, 245, 73)}
+.guessed {
+  font-weight: 100;
+  border: 1px solid #ff3300; 
+  background-color: rgb(255, 173, 96)}
+.floater {
+  float: left
+}
+.score{ 
+  margin-top: 20px;
+  margin-left: 20px;
+  padding:10px;
+  height:120px;
+  width: 30%;
+  border-style: ridge}
+

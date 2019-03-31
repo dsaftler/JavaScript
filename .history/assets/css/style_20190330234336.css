@@ -24,7 +24,9 @@ body {font-family: 'Ubuntu+Mono',monospace, sans-serif;
 .guessed {
   font-weight: 100;
   border: 1px solid #ff3300; 
-  background-color: rgb(255, 173, 96);
+  background-color: rgb(255, 173, 96)}
+.floater {
+  
 }
 .score{ 
   margin-top: 20px;

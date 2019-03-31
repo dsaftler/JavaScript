@@ -37,7 +37,7 @@ var curPtr,curCntGuess,
   firstTime=true;
 
   console.log('firstTime:' +firstTime)
-  wordArr= ["unicorn","griffin","phantom","mermaid","centaur","pegasus"];
+  wordArr= ["unicorn","griffin","dragon","mermaid","centaur","pegasus"];
 initGame();
 
 document.onkeydown = function(event){
@@ -53,7 +53,6 @@ document.onkeydown = function(event){
         //See if that letter was already chosen by parsing badGuess 
     if (badGuess[i]===userGuess){
       //alert("You alread guessed "+userGuess)
-      showValue("showGuesses","You already guessed "+userGuess)
       isFound=true
     }
   }
@@ -98,20 +97,17 @@ document.onkeydown = function(event){
       //alert('You lost')
       cntLosses++;
       showValue("showLosses","Losses   "+cntLosses)
-      showValue("correctWord","The Word was  "+curWord)
+      showValue("correctWord","The Word   "+curWord)
       nextWord()
   } else {
     if (collapseArray()===curWord){
       //alert("You won") 
       cntWins++;
       showValue("showWins","Wins   "+cntWins)
-      showValue("correctWord","The Word was  "+curWord)
-
       nextWord()
     } else {
       myWord=''
-    }  
-    showValue("showGuesses","Guesses")
+    }   
   }
 
 }
@@ -158,8 +154,8 @@ function nextWord(){
 }
 function showValue(thisId,thisValue){
   var target=document.getElementById(thisId);
-  // console.log(thisValue)
-  // console.log(thisId)
+  console.log(thisValue)
+  console.log(thisId)
   target.innerHTML=thisValue;
 }
 function addValue(thisId,thisValue){

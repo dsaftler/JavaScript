@@ -53,7 +53,7 @@ document.onkeydown = function(event){
         //See if that letter was already chosen by parsing badGuess 
     if (badGuess[i]===userGuess){
       //alert("You alread guessed "+userGuess)
-      showValue("showGuesses","You already guessed "+userGuess)
+      showValue(showGuesses,"You already guessed "+userGuess)
       isFound=true
     }
   }

@@ -24,10 +24,15 @@ body {font-family: 'Ubuntu+Mono',monospace, sans-serif;
 .guessed {
   font-weight: 100;
   border: 1px solid #ff3300; 
-  background-color: rgb(255, 173, 96);
+  background-color: rgb(255, 173, 96)}
+.floater {
+  
 }
 .score{ 
   margin-top: 20px;
+  margin-left: 20px;
   padding:10px;
   height:120px;
+  width: 30%;
+  border-style: ridge}
 

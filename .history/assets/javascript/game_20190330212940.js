@@ -22,9 +22,8 @@ var cntWins,
   ltrTried_8, 
   ltrTried_9 ;
 
-var maxGuesses=9,
-   cntWins=0,
-   cntLosses=0;
+var maxGuesses=9
+var  cntWins=0;
 var userGuess;
 // within the game
 // while wordArr.length>0
@@ -37,7 +36,7 @@ var curPtr,curCntGuess,
   firstTime=true;
 
   console.log('firstTime:' +firstTime)
-  wordArr= ["unicorn","griffin","phantom","mermaid","centaur","pegasus"];
+  wordArr= ["unicorn","griffin","dragon","mermaid","centaur","pegasus"];
 initGame();
 
 document.onkeydown = function(event){
@@ -47,13 +46,12 @@ document.onkeydown = function(event){
   userGuess=userGuess.toLowerCase()
   console.log("userGuess: "+userGuess);
   // is userGuess already in badGuess 
-  //showValue("curGuess",userGuess);
+  showValue("curGuess",userGuess);
 
   for (let i=0; i<badGuess.length; i++) {
         //See if that letter was already chosen by parsing badGuess 
     if (badGuess[i]===userGuess){
-      //alert("You alread guessed "+userGuess)
-      showValue("showGuesses","You already guessed "+userGuess)
+      alert("You alread guessed "+userGuess)
       isFound=true
     }
   }
@@ -73,6 +71,7 @@ document.onkeydown = function(event){
                  //set getElementId for that index (see if I can create a variable "ltr_"+(toString([j]))
         //id="chr_0"
         el='chr_'+i
+        showValue(el,' ')
         showValue(el,userGuess)
         //getElementById(el).textContent:userGuess;
         isFound=true
@@ -81,10 +80,8 @@ document.onkeydown = function(event){
   }
   if (!isFound)
   {
-    el="guess_"+badGuess.length;
-    showValue(el,userGuess)  ;
-    // push to badGuess
-      badGuess.push(userGuess);
+        // push to badGuess
+      badGuess.push(userGuess)
       console.log("badGuess: "+badGuess)
       curCntGuess++
       console.log("curCntGuess :" +curCntGuess)
@@ -94,34 +91,23 @@ document.onkeydown = function(event){
 
   
 
-  if (curCntGuess>=maxGuesses){
-      //alert('You lost')
-      cntLosses++;
-      showValue("showLosses","Losses   "+cntLosses)
-      showValue("correctWord","The Word was  "+curWord)
+  if (curCntGuess>maxGuesses){
+      alert('You lost')
       nextWord()
   } else {
     if (collapseArray()===curWord){
-      //alert("You won") 
-      cntWins++;
-      showValue("showWins","Wins   "+cntWins)
-      showValue("correctWord","The Word was  "+curWord)
-
+      alert("You won ") 
       nextWord()
     } else {
       myWord=''
-    }  
-    showValue("showGuesses","Guesses")
+    }   
   }
 
 }
 
 
 function initGame(){
-  allLetters = document.querySelectorAll('.letter');
-  allLetters.forEach(element => {
-    element.textContent = '_';
-  });
+ 
   curCntGuess = 0;   
   curLetter="";
   curWord="";
@@ -150,22 +136,29 @@ function initGame(){
 function nextWord(){
   console.log("Word Arr b4: " +wordArr)
   wordArr.splice(curPtr,1)
-  if (wordArr.length===0){
-    //alert("End of Game")
+  var newArr=Array.from(wordArr)
+  console.log("WordArr aft: "+wordArr)
+  console.log("newArr aft: "+newArr)
+  console.log("wordArr.length: "+wordArr.length)
+  console.log("newArr length: "+newArr.length)
+  wordArr=[];
+  wordArr=Array.from(newArr)
+  console.log("WordArr from newArr: "+wordArr)
+  console.log("wordArr.length: "+wordArr.length)
+
+  if (wordArr.length=0){
+    alert("End of Game")
   }else{
     initGame()
   }
 }
 function showValue(thisId,thisValue){
   var target=document.getElementById(thisId);
-  // console.log(thisValue)
-  // console.log(thisId)
-  target.innerHTML=thisValue;
+  console.log(thisValue)
+  console.log(thisId)
+  target.innerHTML=target.innerHTML+' '+thisValue;
 }
-function addValue(thisId,thisValue){
-  var target=document.getElementById(thisId);
-  target.innerHTML=target.innerHTML+"      " +thisValue;
-}
+
 function collapseArray(){
   
   for (let k=0; k<builtWord.length; k++) {

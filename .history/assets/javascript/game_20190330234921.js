@@ -53,7 +53,7 @@ document.onkeydown = function(event){
         //See if that letter was already chosen by parsing badGuess 
     if (badGuess[i]===userGuess){
       //alert("You alread guessed "+userGuess)
-      showValue("showGuesses","You already guessed "+userGuess)
+      showValue("showGuesses","You alread guessed "+userGuess)
       isFound=true
     }
   }
@@ -158,8 +158,8 @@ function nextWord(){
 }
 function showValue(thisId,thisValue){
   var target=document.getElementById(thisId);
-  // console.log(thisValue)
-  // console.log(thisId)
+  console.log(thisValue)
+  console.log(thisId)
   target.innerHTML=thisValue;
 }
 function addValue(thisId,thisValue){

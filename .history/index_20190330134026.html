@@ -10,13 +10,11 @@
   <title>JavaScript Hangman Game</title>
 </head>
 <body>
-    <div class="container">
-        <div class="instructions showtext">Press any letter to guess the word: </div>
-
-         <div class="showtext" id="correctWord" ></div>
+    <div class="container showtext">
+        <div class="instructions showtext">Press any letter to guess the word: 
          
-
-         
+        </div>
+        <div class="word showtext">word</div>
          <div class="letter match" id="chr_0">_</div>
          <div class="letter match" id="chr_1">_</div>
          <div class="letter match" id="chr_2">_</div>
@@ -26,7 +24,7 @@
          <div class="letter match" id="chr_6">_</div>
     
          
-        <div class="showtext" id="showGuesses">Guesses </div>
+        <div class="guesses showtext" id="showRemaining">guesses remaining </div>
 
         <div class="letter guessed" id="guess_0">_</div>
         <div class="letter guessed" id="guess_1">_</div>
@@ -42,7 +40,7 @@
       <div class="score">
       <div class="showtext" id="showWins">Wins</div>
       <div class="showtext" id="showLosses">Losses</div>
-
+      </div>
     </div>
   
     <script type="text/javascript" src="assets/javascript/game.js"></script>  
