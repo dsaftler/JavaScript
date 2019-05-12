@@ -32,45 +32,43 @@ var userGuess;
 var curPtr, curCntGuess,
   curLetter, curWord, myWord,
   badGuess, curWordArr, builtWord,
-  isFound,curImg,curImgAlt,
+  isFound,
   curPtr = 0,
-  firstTime = true
+  firstTime = true;
 
 console.log('firstTime:' + firstTime)
 
 var wordArr = [
   {word:"unicorn", 
-    image: "assets/images/unicorn.jpg",
+    image: "assets/images/unicorn.png",
     imgAlt: "Unicorn"},
   {word: "griffin", 
-    image: "assets/images/griffin.jpg",
+    image: "assets/images/griffin.png",
     imgAlt: "Griffin"},
+  {word: "manticore", 
+    image: "assets/images/manticore.png",
+    imgAlt: "Manticore"},
   {word: "mermaid",
-    image: "assets/images/mermaid.jpg",
+    image: "assets/images/mermaid.png",
     imgAlt: "Mermaid"},
   {word: "centaur", 
-    image: "assets/images/centaur.jpg",
+    image: "assets/images/centaur.png",
     imgAlt: "Centaur" },
   {word: "pegasus", 
-  image: "assets/images/pegasus.jpg",
+  image: "assets/images/pegasus.png",
     imgAlt: "Pegasus" },
   {word: "minotaur",
-    image: "assets/images/minotaur.jpg",
+    image: "assets/images/minotaur.png",
     imgAlt: "minotaur"},
   {word: "dragon",
-    image: "assets/images/dragon.jpg",
+    image: "assets/images/dragon.png",
     imgAlt: "Dragon" },
-  {word: "phoenix",
-    image: "assets/images/phoenix.jpg",
-    imgAlt: "phoenix"},
-  {word: "cerberus", 
-  image: "assets/images/cerberus.jpg",
-    imgAlt: "cerberus"},
-  {word: "hippogryph",
-    image: "assets/images/hippogryph.jpg",
-    imgAlt: "hippogryph"
-  }
-]
+  {word: "basilisk", 
+  image: "assets/images/basilisk.png",
+    imgAlt: "Basilisk"},
+  {word: "hippogriff",
+    image: "assets/images/hippogriff.png",
+    imgAlt: "Hippogriff"}];
 
 initGame();
 
@@ -81,16 +79,16 @@ document.onkeydown = function (event) {
  
   userGuess = userGuess.toLowerCase()
   let asciiChr=userGuess.charCodeAt(0)
-  if (userGuess.length===1 && asciiChr >= 97 && asciiChr <= 122) {
+  if (asciiChr >= 97 && asciiChr <= 122) {
   // console.log("userGuess: " + userGuess);
   // is userGuess already in badGuess 
   //showValue("curGuess",userGuess);
-    showValue("showGuesses", "Guesses",'normal')
+
     for (let i = 0; i < badGuess.length; i++) {
       //See if that letter was already chosen by parsing badGuess 
       if (badGuess[i] === userGuess) {
         //alert("You alread guessed "+userGuess)
-        showValue("showGuesses", "You already guessed " + userGuess,'warn')
+        showValue("showGuesses", "You already guessed " + userGuess)
         isFound = true
       }
     }
@@ -131,37 +129,26 @@ document.onkeydown = function (event) {
       //alert('You lost')
       cntLosses++;
       showValue("showLosses", "Losses   " + cntLosses)
-      showValue("correctWord", "The Word was  " + curWord,'warn')
-
+      showValue("correctWord", "The Word was  " + curWord)
+      nextWord()
     } else {
       if (collapseArray() === curWord) {
         //alert("You won") 
         cntWins++;
         showValue("showWins", "Wins   " + cntWins)
-        showValue("correctWord", "The Word was  " + curWord,'win')
+        showValue("correctWord", "The Word was  " + curWord)
 
-        
+        nextWord()
       } else {
         myWord = ''
       }
-      if (myWord.length>0)
-       { 
-        showPicture();
-        setTimeout(nextWord,6000);
-      }
-      
-      // showValue("showGuesses", "Guesses")
+      showValue("showGuesses", "Guesses")
     }
   }
 }
-function showPicture() {
 
- $(".container").css({'background-image':'url('+curImg+')','background-repeat':'no-repeat' ,'background-position':'center center', 'z-index':'99'});
-  // onload = "resizeImg(this, 200, 100);" >
-}
 
 function initGame() {
-  window.clearTimeout()
   allLetters = document.querySelectorAll('.letter');
   allLetters.forEach(element => {
     element.textContent = '_';
@@ -179,8 +166,6 @@ function initGame() {
   console.log("curPtr: " + curPtr)
   //curWordArr = array the word at that index
   curWord = wordArr[curPtr].word; //unicorn
-  curImg = wordArr[curPtr].image;
-  curImgAlt = wordArr[curPtr].imageAlt;
   console.log("curWord: " + curWord)
   for (let i = 0; i <=9; i++) {
     if (i < curWord.length) {
@@ -200,36 +185,20 @@ function initGame() {
 }
 
 function nextWord() {
-
   console.log("Word Arr b4: " + wordArr)
-  $(".container").css({'background-image': 'none'})
   wordArr.splice(curPtr, 1)
   if (wordArr.length === 0) {
-    $(".container").css({ 'background-image': 'url(assets/images/gameover.jpg)'})
+    //alert("End of Game")
   } else {
-   
     initGame()
   }
 }
 
-function showValue(thisId, thisValue,msgType) {
+function showValue(thisId, thisValue) {
   var target = document.getElementById(thisId);
   // console.log(thisValue)
   // console.log(thisId)
-  // this shoulc have worked with addClass!
-  switch(msgType) {
-    case 'warn':
-      clscolor='red';
-      break;
-    case 'win':
-      clscolor = 'green';
-      break;
-    case 'normal':
-      clscolor = 'black';
-      break;
-  }
-  target.innerHTML = '<span class='+msgType+'>'+thisValue+'</span>';
-  // $("#target").addClass(msgType)
+  target.innerHTML = thisValue;
 }
 
 // function addValue(thisId, thisValue) {

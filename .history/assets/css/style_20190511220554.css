@@ -14,7 +14,7 @@ body {font-family: 'Ubuntu+Mono',monospace, sans-serif;
  .showtext {height:35px; 
   padding: 20px 0 10px;
   font-size: 30px;
- 
+  background-color: white;
  }
  #correctWord {
    background-color: white;

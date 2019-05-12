@@ -5,7 +5,7 @@ body {font-family: 'Ubuntu+Mono',monospace, sans-serif;
 }
 .container {width:60%;
   max-width: 960px;
-  margin: auto;
+
  /* background-image: "url('assets/images/Hangman.png')";  */
  background-color: white;
  height:700px;
@@ -14,21 +14,17 @@ body {font-family: 'Ubuntu+Mono',monospace, sans-serif;
  .showtext {height:35px; 
   padding: 20px 0 10px;
   font-size: 30px;
- 
- }
- #correctWord {
-   background-color: white;
  }
 .letter {font-size: 100px;
   display: inline;
   padding: 5px;}
 .match { 
   border: 1px solid blue; 
-  background-color: rgb(142, 245, 73,0.39)}
+  background-color: rgb(142, 245, 73)}
 .guessed {
   font-weight: 100;
   border: 1px solid #ff3300; 
-  background-color: rgba(255, 173, 96, 0.39);
+  background-color: rgb(255, 173, 96);
 }
 .score{ 
   margin-top: 20px;

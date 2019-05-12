@@ -40,37 +40,35 @@ console.log('firstTime:' + firstTime)
 
 var wordArr = [
   {word:"unicorn", 
-    image: "assets/images/unicorn.jpg",
+    image: "assets/images/unicorn.png",
     imgAlt: "Unicorn"},
   {word: "griffin", 
-    image: "assets/images/griffin.jpg",
+    image: "assets/images/griffin.png",
     imgAlt: "Griffin"},
+  {word: "manticore", 
+    image: "assets/images/manticore.png",
+    imgAlt: "Manticore"},
   {word: "mermaid",
-    image: "assets/images/mermaid.jpg",
+    image: "assets/images/mermaid.png",
     imgAlt: "Mermaid"},
   {word: "centaur", 
-    image: "assets/images/centaur.jpg",
+    image: "assets/images/centaur.png",
     imgAlt: "Centaur" },
   {word: "pegasus", 
-  image: "assets/images/pegasus.jpg",
+  image: "assets/images/pegasus.png",
     imgAlt: "Pegasus" },
   {word: "minotaur",
-    image: "assets/images/minotaur.jpg",
+    image: "assets/images/minotaur.png",
     imgAlt: "minotaur"},
   {word: "dragon",
-    image: "assets/images/dragon.jpg",
+    image: "assets/images/dragon.png",
     imgAlt: "Dragon" },
-  {word: "phoenix",
-    image: "assets/images/phoenix.jpg",
-    imgAlt: "phoenix"},
-  {word: "cerberus", 
-  image: "assets/images/cerberus.jpg",
-    imgAlt: "cerberus"},
-  {word: "hippogryph",
-    image: "assets/images/hippogryph.jpg",
-    imgAlt: "hippogryph"
-  }
-]
+  {word: "basilisk", 
+  image: "assets/images/basilisk.png",
+    imgAlt: "Basilisk"},
+  {word: "hippogriff",
+    image: "assets/images/hippogriff.png",
+    imgAlt: "Hippogriff"}];
 
 initGame();
 
@@ -147,7 +145,7 @@ document.onkeydown = function (event) {
       if (myWord.length>0)
        { 
         showPicture();
-        setTimeout(nextWord,6000);
+        nextWord();
       }
       
       // showValue("showGuesses", "Guesses")
@@ -155,13 +153,12 @@ document.onkeydown = function (event) {
   }
 }
 function showPicture() {
-
- $(".container").css({'background-image':'url('+curImg+')','background-repeat':'no-repeat' ,'background-position':'center center', 'z-index':'99'});
+ $(".container").css({'background-image':'url(curImg)'});
+ 
   // onload = "resizeImg(this, 200, 100);" >
 }
 
 function initGame() {
-  window.clearTimeout()
   allLetters = document.querySelectorAll('.letter');
   allLetters.forEach(element => {
     element.textContent = '_';
@@ -200,14 +197,11 @@ function initGame() {
 }
 
 function nextWord() {
-
   console.log("Word Arr b4: " + wordArr)
-  $(".container").css({'background-image': 'none'})
   wordArr.splice(curPtr, 1)
   if (wordArr.length === 0) {
-    $(".container").css({ 'background-image': 'url(assets/images/gameover.jpg)'})
+    //alert("End of Game")
   } else {
-   
     initGame()
   }
 }

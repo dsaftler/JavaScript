@@ -147,7 +147,7 @@ document.onkeydown = function (event) {
       if (myWord.length>0)
        { 
         showPicture();
-        setTimeout(nextWord,6000);
+        nextWord();
       }
       
       // showValue("showGuesses", "Guesses")
@@ -155,13 +155,11 @@ document.onkeydown = function (event) {
   }
 }
 function showPicture() {
-
- $(".container").css({'background-image':'url('+curImg+')','background-repeat':'no-repeat' ,'background-position':'center center', 'z-index':'99'});
+ $(".container").css({'background-image':'url('+curImg+')','background-repeat':'no-repeat' ,'background-position':'center center', 'z-index':'1'});
   // onload = "resizeImg(this, 200, 100);" >
 }
 
 function initGame() {
-  window.clearTimeout()
   allLetters = document.querySelectorAll('.letter');
   allLetters.forEach(element => {
     element.textContent = '_';
@@ -200,14 +198,11 @@ function initGame() {
 }
 
 function nextWord() {
-
   console.log("Word Arr b4: " + wordArr)
-  $(".container").css({'background-image': 'none'})
   wordArr.splice(curPtr, 1)
   if (wordArr.length === 0) {
-    $(".container").css({ 'background-image': 'url(assets/images/gameover.jpg)'})
+    //alert("End of Game")
   } else {
-   
     initGame()
   }
 }
